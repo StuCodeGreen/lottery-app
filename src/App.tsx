@@ -2,6 +2,7 @@ import { useState } from 'react';
 import LotteryBalls from './components/LotteryBalls';
 import ActionButtons from './components/ActionButtons';
 import generateLotteryNumbers from './generateNumbers';
+import WinningNumbers from './components/WinningNumbers';
 
 import './App.css';
 
@@ -57,6 +58,14 @@ function App() {
         selectLimit={selectLimit}
         isMakingSelections={isMakingSelections}
       />
+      {showResults ? (
+        <div>
+          <WinningNumbers
+            winningNumbers={winningNumbers}
+            playedNumbers={playedNumbers}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
