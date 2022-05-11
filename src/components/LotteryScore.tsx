@@ -27,5 +27,5 @@ export default function LotteryScore(props: LotteryScoreProps) {
     return `${score}`;
   }
 
-  return <h1 className='score'>Score: {score()}</h1>;
+  return <h2 className='score'>Score: {score()}</h2>;
 }

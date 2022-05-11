@@ -40,7 +40,6 @@ button[aria-pressed='true'] {
 
 .winning-numbers {
   height: 70px;
-  width: 500px;
   display: grid;
   grid-template-rows: 50px;
   grid-template-columns: repeat(6, 1fr);
@@ -61,6 +60,7 @@ button[aria-pressed='true'] {
 .score {
   animation: opacity 0.5s ease-in 3s;
   animation-fill-mode: backwards;
+  margin:0px;
 }
 
 /* Animations */
@@ -88,5 +88,15 @@ button[aria-pressed='true'] {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .lotteryBall,
+  .lucky-number {
+    width: 30px;
+    height: 30px;
+    margin: 0.5rem;
+    border-radius: 100%;
   }
 }
