@@ -1,6 +1,6 @@
 # Lottery game :rocket:
 
-## `Demo:`
+## `Demo:` [https://tcm1q9.csb.app/](https://tcm1q9.csb.app/)
 
 ## `To run this locally`
 In the project directory run:
