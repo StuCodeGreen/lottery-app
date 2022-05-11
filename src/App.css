@@ -6,7 +6,7 @@
 }
 
 h1 {
-  margin-bottom:0px
+  margin-bottom: 0px;
 }
 
 .lottery-balls-wrapper {
@@ -24,7 +24,8 @@ h1 {
   justify-content: center;
 }
 
-.lotteryBall {
+.lotteryBall,
+.lucky-number {
   width: 40px;
   height: 40px;
   margin: 0.5rem;
@@ -35,4 +36,57 @@ button[aria-pressed='true'] {
   background-color: rgb(32, 32, 32);
   border: 0px;
   color: white;
+}
+
+.winning-numbers {
+  height: 70px;
+  width: 500px;
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.lucky-number {
+  color:white;
+  background-color: rgb(92, 102, 255);
+  animation: cardEntrance 1s ease-in;
+  animation-fill-mode: backwards;
+  border:0px;
+}
+
+.matched-number {
+  background-color: rgb(219, 0, 0);
+}
+
+.score {
+  animation: opacity 0.5s ease-in 3s;
+  animation-fill-mode: backwards;
+}
+
+/* Animations */
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+    filter: hue-rotate(180deg);
+    transform:rotate(0deg);
+    margin-left: -100vw;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+    transform:rotate(360deg);
+    margin-left: 0px;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
