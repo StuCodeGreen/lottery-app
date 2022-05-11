@@ -1,3 +1,4 @@
+import LotteryScore from './LotteryScore';
 interface WinningNumbersProps {
   winningNumbers: number[];
   playedNumbers: number[];
@@ -39,6 +40,7 @@ function WinningNumbers(props: WinningNumbersProps) {
     <div>
       <h2>Winning Numbers</h2>
       <div className='winning-numbers'>{buildWinningNumbers()}</div>
+      <LotteryScore matchedNum={matchingNumbers} />
     </div>
   );
 }
