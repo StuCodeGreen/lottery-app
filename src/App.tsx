@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import LotteryBalls from './components/LotteryBalls';
 import ActionButtons from './components/ActionButtons';
+import generateLotteryNumbers from './generateNumbers';
+
 import './App.css';
 
 function App() {
@@ -15,12 +17,14 @@ function App() {
 
   function playLotto() {
     setPlayedNumbers(currSelectedNum);
+    setWinningNumbers(generateLotteryNumbers(selectLimit, qty));
     setShowResults(true);
     setIsMakingSelections(false);
     setLimitMsg(false);
   }
 
   function quickPick() {
+    setCurrSelectedNum(generateLotteryNumbers(selectLimit, qty));
     setShowResults(false);
     setIsMakingSelections(true);
     setLimitMsg(false);
