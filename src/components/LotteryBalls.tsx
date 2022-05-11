@@ -3,7 +3,8 @@ interface LotteryBallsProps {
   selectLimit: number;
   currSelectedNum: number[];
   setCurrSelectedNum: (nums: number[]) => void;
-
+  limitMsg: boolean;
+  setLimitMsg: (msg: boolean) => void;
 }
 
 export default function LotteryBalls(props: LotteryBallsProps) {
@@ -12,6 +13,8 @@ export default function LotteryBalls(props: LotteryBallsProps) {
     selectLimit,
     currSelectedNum,
     setCurrSelectedNum,
+    limitMsg,
+    setLimitMsg,
   } = props;
 
   function handleClick(event: React.MouseEvent) {
@@ -22,12 +25,17 @@ export default function LotteryBalls(props: LotteryBallsProps) {
       // Add new selected ball
       setCurrSelectedNum([...currSelectedNum, ballValue]);
     } else {
+      // If ball is selected deslect it and remove limit message
       if (isSelected) {
+        setLimitMsg(false);
         setCurrSelectedNum(
           currSelectedNum.filter((num) => {
             return num !== ballValue;
           })
         );
+      } else {
+        // Displays limit message
+        setLimitMsg(true);
       }
     }
   }
@@ -55,6 +63,9 @@ export default function LotteryBalls(props: LotteryBallsProps) {
 
   return (
     <div className='lottery-balls-wrapper'>
+      {limitMsg === true ? (
+        <p>You have reached limit, please deselect one of the numbers</p>
+      ) : null}
       <div className='lottery-balls'>{createLotteryBalls(qty)}</div>
     </div>
   );
