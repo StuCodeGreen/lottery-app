@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
+import LotteryBalls from './components/LotteryBalls';
+
 import './App.css';
 
+
 function App() {
+
+  const [selectLimit, setSelectLimit] = useState<number>(6);
+  const [qty, setQty] = useState<number>(59);
+  const [currSelectedNum, setCurrSelectedNum] = useState<number[]>([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<h1>Lottery🚀</h1>
+<LotteryBalls
+        qty={qty}
+        selectLimit={selectLimit}
+        currSelectedNum={currSelectedNum}
+        setCurrSelectedNum={setCurrSelectedNum}
+
+      />
     </div>
   );
 }
